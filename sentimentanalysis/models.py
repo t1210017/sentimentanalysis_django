@@ -15,16 +15,16 @@ class SentimentAnalysis(models.Model):
 #class Execution(models.Model):
     # Scrapingの呼び出し
 #    url = input("Please enter URL:")
-    url = "https://www.yelp.com/biz/the-thonglor-san-francisco-2"
-    x = sr.Scraping()
+#    url = "https://www.yelp.com/biz/the-thonglor-san-francisco-2"
+#    x = sr.Scraping()
     # ループで変数の数だけ呼び出す
-    x.scrUrl(url)
+#    x.scrUrl(url)
     # SentimentAnalysisの呼び出し
-    y = sl.SaLib()
-    y.saLib()
+#    y = sl.SaLib()
+#    y.saLib()
     # WordCloudを呼び出し
-    z = pn.PstNgtGrp()
-    z.pstNgtGrp()
+#    z = pn.PstNgtGrp()
+#    z.pstNgtGrp()
 
     def __str__(self):
         return self.name

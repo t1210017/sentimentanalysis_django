@@ -25,7 +25,8 @@ SECRET_KEY = 'whf+5e_7(*)8w8c7e=phv43b08m%a30&#i186fzc!n(duy-r_#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com',
+'sentimentanalysis-sentimentanalysis.40.114.46.24.nip.io']
 
 
 # Application definition

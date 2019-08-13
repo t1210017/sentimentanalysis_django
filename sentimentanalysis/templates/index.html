@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <title>口コミの評判分析</title>
@@ -6,10 +7,11 @@
 <body>
 
     <form action="{% url 'sentimentanalysis:result' %}" method="post">
+      <div class"msr_search_04">
         {% csrf_token %}
         <label>URLを入力してください</label><br>
-        <input type="text" name="url" value="">
+        <input type="text" name="url" maxlength="1000" value="" placeholder="URLをコピペしてください">
         <input type="submit" value="送信">
+      </div>
     </form>
 </body>
-</html>

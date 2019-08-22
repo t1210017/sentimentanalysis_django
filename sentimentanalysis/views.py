@@ -3,21 +3,9 @@ from django.shortcuts import render
 from . import scrapingReview as sr
 from . import saLib as sl
 from . import pstNgtGrp as pn
-from .forms import IsValidForm
 
 def index(request):
     return render(request, 'index.html')
-
-def form_test(request):
-    if request.method == "POST":
-        form = IsValidForm(data=request.POST)  # ← 受け取ったPOSTデータを渡す
-        if form.is_valid():  # ← 受け取ったデータの正当性確認
-            pass  # ← 正しいデータを受け取った場合の処理
-    else:  # ← methodが'POST'ではない = 最初のページ表示時の処理
-        form = IsValidForm()
-    return render(request, 'index.html', {
-        'form': form,
-    })
 
 def result(request):
     # フォーム送信された値を受け取る

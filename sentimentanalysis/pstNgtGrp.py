@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 from subprocess import check_output
 
 class PstNgtGrp:
-    def pstNgtGrp(self):
+    def pstNgtGrp(self,count):
         # PandasでCSVファイル読み込み
         data = pd.read_csv('sentiment.csv')
         # dataに格納
@@ -37,7 +37,8 @@ class PstNgtGrp:
         # Positive, Negative、その合計の件数を取得
         pos_count = train_pos.count()
         neg_count = train_neg.count()
-        pos_nega_totalcount = pos_count + neg_count
+        #pos_nega_totalcount = pos_count + neg_count
+        pos_nega_totalcount = data['text'].count()
         print("Posi Num:" + str(pos_count))
         print("Nega Num:" + str(neg_count))
         print("Posi, Nega Total is:" + str(pos_nega_totalcount))
@@ -55,10 +56,14 @@ class PstNgtGrp:
         else:
             pos_ratio -= 0.1
             neg_ratio += 0.1
-        pos_width = int(round(2000 * pos_ratio))
-        pos_height = int(round(1600 * pos_ratio))
-        neg_width = int(round(2000 * neg_ratio))
-        neg_height = int(round(1600 * neg_ratio))
+        #pos_width = int(round(1000 * pos_ratio))
+        #pos_height = int(round(800 * pos_ratio))
+        #neg_width = int(round(1000 * neg_ratio))
+        #neg_height = int(round(800 * neg_ratio))
+        pos_width = int(round(pos_nega_totalcount * pos_ratio) * 0.5)
+        pos_height = int(round(pos_nega_totalcount * pos_ratio) * 0.4)
+        neg_width = int(round(pos_nega_totalcount * neg_ratio) * 0.5)
+        neg_height = int(round(pos_nega_totalcount * neg_ratio) * 0.4)
         print("Pos width" + str(pos_width) + "Pos height" + str(pos_height))
         def wordcloud_draw(data, color = 'black'):
             words = ' '.join(data)
@@ -83,8 +88,10 @@ class PstNgtGrp:
                 width=neg_width,
                 height=neg_height
                 ).generate(cleaned_word)
+            # strに何かくっつける処理を追加
+            if count ==1:
+                str += '2'
             # Wordcloud表示結果をPngファイルで出力
-            #wordcloud.to_file('wordcloud_' + str + '.png')
             wordcloud.to_file('./sentimentanalysis/static/images/wordcloud_' + str + '.png')
             # WordCloudは端末上で表示可能。ただし、処理時間が長いので割愛
             #lt.figure(1,figsize=(13, 13))

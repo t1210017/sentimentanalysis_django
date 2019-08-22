@@ -41,3 +41,7 @@
 .msr_search_04 input[type=submit]:hover {
   opacity: 0.6;
 }
+
+.inline-block_test {
+    display: inline-block;      /* インラインブロック要素にする */             /* 余白指定 */
+}

@@ -7,22 +7,12 @@
     function check(){
     	var flag = 0;
     	// 設定開始（必須にする項目を設定してください）
-    	if(document.form1.url.value == ""){ // 「お名前」の入力をチェック
+    	if(document.form1.url.value == ""){ // 「URL」の入力をチェック
     		flag = 1;
     	}
     	if(flag){
-
     		window.alert('必須項目に未入力がありました'); // 入力漏れがあれば警告ダイアログを表示
     		return false; // 送信を中止
-    	}
-      if(){
-	       txt = document.form1.url.value;
-	       data = txt.match(/(http|ftp):\/\/.+/);
-         txt2 = document.form1.url2.value;
-         data2 = txt.match(/(http|ftp):\/\/.+/);
-	       if (!data) alert("URLが正しくありません");
-	       if (!data2) alert("URL2が正しくありません");
-         return false; // 送信を中止
       }
     	else{
     		return true; // 送信を実行

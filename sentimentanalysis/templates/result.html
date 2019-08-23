@@ -3,22 +3,12 @@
     <title>口コミの評判分析</title>
 </head>
 <body>
+  {% load static %}
   <div class"inline-block_test">
    {{url}}
   の結果はこちら<br>
-  {% load static %}
     <h1>Positive Word</h1><br>
       <img src="{% static "images/wordcloud_positive.png" %}" alt=""><br>
     <h1>Negative Word</h1><br>
       <img src="{% static "images/wordcloud_negative.png" %}" alt=""><br><br><br>
   </div>
-  <div class"inline-block_test">
-  {{url2}}
-  の結果はこちら<br>
-  {% load static %}
-    <h1>Positive Word</h1><br>
-      <img src="{% static "images/wordcloud_positive2.png" %}" alt=""><br>
-    <h1>Negative Word</h1><br>
-      <img src="{% static "images/wordcloud_negative2.png" %}" alt=""><br>
-  </div>
-</body>

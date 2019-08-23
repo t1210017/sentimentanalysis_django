@@ -3,16 +3,43 @@
 <html>
 <head>
     <title>口コミの評判分析</title>
+    <script type="text/javascript">
+    function check(){
+    	var flag = 0;
+    	// 設定開始（必須にする項目を設定してください）
+    	if(document.form1.url.value == ""){ // 「お名前」の入力をチェック
+    		flag = 1;
+    	}
+    	if(flag){
+
+    		window.alert('必須項目に未入力がありました'); // 入力漏れがあれば警告ダイアログを表示
+    		return false; // 送信を中止
+    	}
+      if(){
+	       txt = document.form1.url.value;
+	       data = txt.match(/(http|ftp):\/\/.+/);
+         txt2 = document.form1.url2.value;
+         data2 = txt.match(/(http|ftp):\/\/.+/);
+	       if (!data) alert("URLが正しくありません");
+	       if (!data2) alert("URL2が正しくありません");
+         return false; // 送信を中止
+      }
+    	else{
+    		return true; // 送信を実行
+    	}
+
+    }
+    // -->
+    </script>
 </head>
 <body>
-
-    <form action="{% url 'sentimentanalysis:result' %}" method="post">
+    <h1>口コミサイトの評判分析</h1><br>
+    <form action="{% url 'sentimentanalysis:result' %}" method="post" name="form1" onSubmit="return check()">
       <div class"msr_search_04">
         {% csrf_token %}
-        {{ form }}
-        <label>URLを入力してください1</label><br>
+        <label>１つ目のURLを入力してください（必須入力）</label><br>
         <input type="url" name="url" maxlength="1000" value="" placeholder="URLをコピペしてください"><br>
-        <label>URLを入力してください2</label><br>
+        <label>２つ目のURLを入力してください（任意入力）</label><br>
         <input type="url" name="url2" maxlength="1000" value="" placeholder="URLをコピペしてください"><br>
         <input type="submit" value="送信">
       </div>
